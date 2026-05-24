@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# ANSI Color Codes
 GREEN="\033[1;32m"
 RED="\033[1;31m"
 YELLOW="\033[1;33m"
@@ -52,7 +51,7 @@ for test_file in src/test_*.c; do
 done
 
 echo -e "${CYAN}===================================================${RESET}"
-echo -e "${WHITE}                 FINAL VERDICT                     ${RESET}"
+echo -e "${WHITE}                 FINAL VEREDICT                    ${RESET}"
 echo -e "${CYAN}===================================================${RESET}"
 
 if [ $GLOBAL_FAILS -eq 0 ]; then
@@ -60,5 +59,7 @@ if [ $GLOBAL_FAILS -eq 0 ]; then
 else
     echo -e "${RED}       ❌ Total failed subtests detected: $GLOBAL_FAILS${RESET}"
 fi
+
+rm -f sandbox_*.txt
 
 echo -e "${CYAN}===================================================${RESET}\n"
