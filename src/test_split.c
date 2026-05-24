@@ -6,7 +6,7 @@
 /*   By: mapena-z <mapena-z@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 20:29:58 by mapena-z          #+#    #+#             */
-/*   Updated: 2026/05/24 20:35:35 by mapena-z         ###   ########.fr       */
+/*   Updated: 2026/05/24 21:17:33 by mapena-z         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int run_subtest(int index)
     if (index == 11)
     {
         char **res = ft_split(" z o m b i e", ' ');
-        int ok = (res && strcmp(res[0], "z") == 0 && res[5] == NULL);
+        int ok = (res && strcmp(res[0], "z") == 0 && strcmp(res[5], "e") == 0 && res[6] == NULL);
         free_split_result(res);
         return (ok);
     }
@@ -117,13 +117,13 @@ int run_subtest(int index)
         free_split_result(res);
         return (ok);
     }
-    if (index == 14)
-    {
-        char **res = ft_split("   .   .   ", '.');
-        int ok = (res && strcmp(res[0], "   ") == 0 && strcmp(res[1], "   ") == 0 && res[2] == NULL);
-        free_split_result(res);
-        return (ok);
-    }
+	if (index == 14)
+	{
+    	char **res = ft_split("   .   .   ", '.');
+    	int ok = (res && strcmp(res[0], "   ") == 0 && strcmp(res[1], "   ") == 0 && strcmp(res[2], "   ") == 0 && res[3] == NULL);
+    	free_split_result(res);
+	    return (ok);
+	}
     if (index == 15)
     {
         char **res = ft_split("$", '$');
