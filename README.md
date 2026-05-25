@@ -19,7 +19,7 @@ For the tester to work natively without configuring absolute paths, the folder s
 <pre>
 📁 your_workspace/
 ├── 📁 libft/          # Contains your Libft source files and Makefile
-└── 📁 tests_libft/    # Contains this tester (main.c, Makefile, run_tests.sh, src/...)
+└── 📁 libft-tester/    # Contains this tester (main.c, Makefile, run_tests.sh, src/...)
 </pre>
 
 ### Cloning the Tester
