@@ -10,12 +10,28 @@ RESET="\033[0m"
 clear
 
 echo -e "${CYAN}===================================================${RESET}"
-echo -e "${WHITE}               LIBFT UNIT TESTER                   ${RESET}"
+echo -e "${WHITE}                LIBFT UNIT TESTER                  ${RESET}"
 echo -e "${CYAN}===================================================${RESET}"
-echo -e "${YELLOW}[!] Cleaning old objects & building libft.a...${RESET}"
 
-make -C ../ fclean > /dev/null 2>&1
-make -C ../ re > /dev/null 2>&1
+FILTER=${1:-$funct}
+
+if [ -z "$FILTER" ]; then
+    echo -e "${YELLOW}[!] Building libft.a (Full Suite)...${RESET}"
+    TARGET_FILES=$(ls src/test_*.c 2>/dev/null)
+else
+    CLEAN_FILTER=$(echo "$FILTER" | sed 's/ft_//')
+    echo -e "${YELLOW}[!] Building libft.a (Target: ft_${CLEAN_FILTER})...${RESET}"
+    TARGET_FILES=$(ls src/test_${CLEAN_FILTER}.c 2>/dev/null)
+    
+    if [ -z "$TARGET_FILES" ]; then
+        echo -e "${RED}[ERROR] No test file found for 'ft_${CLEAN_FILTER}'${RESET}"
+        echo -e "${YELLOW}Make sure 'src/test_${CLEAN_FILTER}.c' exists.${RESET}"
+        echo -e "${CYAN}===================================================${RESET}"
+        exit 1
+    fi
+fi
+
+make -C ../ > /dev/null 2>&1
 
 if [ ! -f "../libft.a" ]; then
     echo -e "${RED}[ERROR] Compilation of 'libft.a' failed!${RESET}"
@@ -23,14 +39,14 @@ if [ ! -f "../libft.a" ]; then
     exit 1
 fi
 
-echo -e "${GREEN}[V] Library compiled successfully!${RESET}"
+echo -e "${GREEN}[V] Library ready!${RESET}"
 echo -e "${CYAN}===================================================${RESET}"
-echo -e "${WHITE}               RUNNING FUNCTIONS                   ${RESET}"
+echo -e "${WHITE}                RUNNING FUNCTIONS                  ${RESET}"
 echo -e "${CYAN}===================================================${RESET}"
 
 GLOBAL_FAILS=0
 
-for test_file in src/test_*.c; do
+for test_file in $TARGET_FILES; do
     func_name=$(basename "$test_file" .c | sed 's/test_//')
     
     printf "${WHITE}%-18s${RESET} : " "ft_$func_name"
@@ -51,11 +67,11 @@ for test_file in src/test_*.c; do
 done
 
 echo -e "${CYAN}===================================================${RESET}"
-echo -e "${WHITE}                 FINAL VEREDICT                    ${RESET}"
+echo -e "${WHITE}                  FINAL VEREDICT                    ${RESET}"
 echo -e "${CYAN}===================================================${RESET}"
 
 if [ $GLOBAL_FAILS -eq 0 ]; then
-    echo -e "${GREEN}  🎉 CONGRATULATIONS! All tests passed successfully! 🎉${RESET}"
+    echo -e "${GREEN}   🎉 CONGRATULATIONS! All target tests passed! 🎉${RESET}"
 else
     echo -e "${RED}       ❌ Total failed subtests detected: $GLOBAL_FAILS${RESET}"
 fi
