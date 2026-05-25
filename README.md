@@ -24,6 +24,10 @@ For the tester to work natively without configuring absolute paths, the folder s
 └── 📁 tests_libft/    # Contains this tester (main.c, Makefile, run_tests.sh, src/...)
 </pre>
 
-## CLONNING TESTER
+### Cloning the Tester
 
-Enter the root of your libft project and clone the tester, ensuring the folder sits at the same level as your source files:
+Enter the root of your `libft` project and clone the tester, ensuring the folder sits at the same level as your source files:
+
+```bash
+git clone <YOUR_REPOSITORY_URL> tests_libft
+cd tests_libft
