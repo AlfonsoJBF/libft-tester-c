@@ -67,7 +67,7 @@ for test_file in $TARGET_FILES; do
 done
 
 echo -e "${CYAN}===================================================${RESET}"
-echo -e "${WHITE}                  FINAL VEREDICT                    ${RESET}"
+echo -e "${WHITE}                  FINAL VERDICT                     ${RESET}"
 echo -e "${CYAN}===================================================${RESET}"
 
 if [ $GLOBAL_FAILS -eq 0 ]; then
