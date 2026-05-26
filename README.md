@@ -14,11 +14,13 @@ This tester features incremental compilation (it only recompiles what you modify
 
 ## 🛠️ INSTALLATION & STRUCTURE
 
-For the tester to work natively without configuring absolute paths, the folder structure in your workspace must be as follows:
+For the tester to work natively without configuring absolute paths, your workspace should be organized like this:
 
 <pre>
 📁 your_workspace/
-├── 📁 libft/          # Contains your Libft source files and Makefile
+├── 📄 libft.h
+├── 📄 Makefile
+├── 📄 ft_*.c
 └── 📁 libft-tester/    # Contains this tester (main.c, Makefile, run_tests.sh, src/...)
 </pre>
 
