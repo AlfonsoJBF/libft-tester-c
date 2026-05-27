@@ -1,5 +1,5 @@
 CC        = cc
-CFLAGS    = -Wall -Wextra -Werror
+CFLAGS    = -Wall -Wextra -Werror -Wno-stringop-overread
 LIBFT_DIR = ../
 LIBFT     = $(LIBFT_DIR)/libft.a
 INCLUDES  = -I $(LIBFT_DIR)

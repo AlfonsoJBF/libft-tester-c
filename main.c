@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapena-z <mapena-z@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpena-zu <mpena-zu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 16:35:26 by mapena-z          #+#    #+#             */
-/*   Updated: 2026/05/24 17:02:32 by mapena-z         ###   ########.fr       */
+/*   Updated: 2026/05/27 12:01:57 by mpena-zu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <stddef.h>
 
 extern int g_num_subtests;
 extern int run_subtest(int index);

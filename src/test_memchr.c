@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_memchr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapena-z <mapena-z@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mpena-zu <mpena-zu@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/24 18:44:41 by mapena-z          #+#    #+#             */
-/*   Updated: 2026/05/24 18:49:30 by mapena-z         ###   ########.fr       */
+/*   Updated: 2026/05/27 12:07:58 by mpena-zu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,9 @@ int run_subtest(int index)
         return (ft_memchr(double_str, 'b', 6) == (void *)&double_str[1]);
     }
     if (index == 10)
-        return (ft_memchr(buffer, 't', giant) == memchr(buffer, 't', giant));
-
+    {
+        void *volatile_ptr = (void *)buffer;
+        return (ft_memchr(volatile_ptr, 't', giant) == memchr(volatile_ptr, 't', giant));
+    } 
     return (0);
 }
